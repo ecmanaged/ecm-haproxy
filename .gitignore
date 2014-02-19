@@ -1,8 +1,0 @@
-.gitignore
-cache/*
-www/cache/*
-.idea
-tools/*
-uploads/*
-.bash_history
-*~
