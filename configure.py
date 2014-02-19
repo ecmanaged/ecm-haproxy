@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Convert a ECM Balancer hash to haproxy configuration file
+# This file is just for testing purposes
+
 from ecm_haproxy import ECMHAProxy
 
 HAPROXY_CONFIG = '/etc/haproxy/haproxy_build.cfg'
@@ -22,11 +25,14 @@ ECM_TEST = {
 
 ha_config = ECMHAProxy(ECM_TEST)
 
+# Show configuration
 print ha_config.show(as_json=True)
 
+# Write new configuraion if is valid
 if ha_config.valid():
     ha_config.write(HAPROXY_CONFIG)
 else:
     raise Exception('Invalid configuration')
 
+# Write ECM json hash from final configuration file
 print ha_config.read(HAPROXY_CONFIG, as_json=True)
