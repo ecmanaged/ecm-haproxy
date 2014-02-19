@@ -162,5 +162,5 @@ def is_valid(config):
     if p.returncode == 0:
         return True
 
-    print err
+    warnings.warn("Invalid configuration file: %s" % err)
     return False
